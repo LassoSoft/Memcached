@@ -3,6 +3,10 @@ Memcached for Lasso 9
 
 Intuitive Memcached client for Lasso 9 — supports single / multiple servers.
 
+Written by Ke Carlton, Zeroloop
+
+Published with permission by LassoSoft Inc
+
 What is Memcached?
 ------------------
 
@@ -236,5 +240,7 @@ Returns a map contain the version of each server.
 Credits
 ==
 Written by Ke Carlton, Zeroloop
+
 Published with permission by LassoSoft Inc.
+
 http://www.lassosoft.com/
