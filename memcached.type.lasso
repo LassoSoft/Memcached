@@ -11,10 +11,10 @@ define null->asdecimal => { return decimal(self->asstring) }
 
 //============================================================================
 //
-//	Fix JSON — The Vinilla Lasso JSON methods fails in a couple of areas.
+//	Fix JSON — The standard Lasso JSON methods fails in a couple of areas.
 //
 //				1.	You can only decode the same bytes once before it errors
-//				2.	Consume token did no take into account closing arrays
+//				2.	Consume token did not take into account closing arrays
 //
 //............................................................................		
 
@@ -79,7 +79,7 @@ define error_code_memcached_no_servers 		=> -20002
 define error_msg_memcached_no_servers  		=> `No memcached servers specified, specify using: memcached(array('127.0.0.1'))`
 
 define error_code_memcached_offline 		=> -20003
-define error_msg_memcached_offline 			=> `No memcached servers available.`
+define error_msg_memcached_offline 		=> `No memcached servers available.`
 
 define error_code_memcached_missingblock 	=> -20004
 define error_msg_memcached_missingblock 	=> `No block provided, specify using: memcached('key') => '[date] cached' `
@@ -92,7 +92,7 @@ define error_msg_memcached_invalidkey 		=> `Invalid key, must be alphanumeric an
 
 //============================================================================
 //
-//	Lasso instance wide settings:
+//	Lasso instance-wide settings:
 //
 //		memcached_server = '127.0.0.1'
 //		memcached_servers = array('127.0.0.1','127.0.0.2')
@@ -112,7 +112,7 @@ define memcached_servers => {
 
 //============================================================================
 //
-//	memcached — returns thread based memcached_type
+//	memcached — returns thread-based memcached_type
 //
 //............................................................................		
 
@@ -143,7 +143,7 @@ define memcached(servers::array) => {
 
 //============================================================================
 //
-//	User friendly, thread based calls: (uses lasso settings)
+//	User-friendly, thread-based calls: (uses Lasso settings)
 //
 //		memcached(#key,#expires) => 'Item to cache'
 //
@@ -201,7 +201,7 @@ define memcached(key::string,expires::date) => memcached(#key,#expires->asintege
 //
 //	memcached_server 
 //
-//		Used to gracifully handle offline servers
+//		Used to gracefully handle offline servers
 //
 //............................................................................		
 
@@ -641,7 +641,7 @@ define memcached_type => type {
 			case(1)
 				return void
 			case
-				fail(error_code_memcached_unknowntype,error_nsg_memcached_unknowntype)
+				fail(error_code_memcached_unknowntype,error_msg_memcached_unknowntype)
 				return #value
 		}
 	}
@@ -727,7 +727,7 @@ define memcached_tests(server::string) => {
 	
 //============================================================================
 //
-//	Check user friendly mode
+//	Check user-friendly mode
 //
 //............................................................................		
 
