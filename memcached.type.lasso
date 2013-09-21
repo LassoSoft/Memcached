@@ -136,7 +136,7 @@ define memcached(servers::array) => {
 	fail_if(
 		!#servers->size,
 		error_code_memcached_no_servers,
-		error_mesg_memcached_no_servers
+		error_msg_memcached_no_servers
 	)
 	return memcached_type(#servers)
 }
